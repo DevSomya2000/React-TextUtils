@@ -8,7 +8,7 @@ import Alert from './components/Alert';
 
 function App() {
 const [mode, setMode] = useState('light')
-const [alert, setAlert] = useState('light')
+const [alert, setAlert] = useState(null)
 
 const showAlert = (message,type) => {
   setAlert({
@@ -21,19 +21,19 @@ const toggleMode = () => {
   if(mode === 'light') {
     setMode('dark')
     document.body.style.backgroundColor = '#042743'
-    setAlert()
+    showAlert('Dark mode has been enabled', 'success')
   }
   else {
     setMode('light')
     document.body.style.backgroundColor = 'white'
-    setAlert()
+    showAlert('Light mode has been enabled', 'success')
   }
 }
 
   return (
     <>
       <Navbar title='TetxtUtils' aboutText='About TextUtils' mode={mode} toggleMode={toggleMode} />
-      <Alert alert={`This is ${alert} mode`} />
+      <Alert alert={alert} />
       <div className='container'>
         <TextForm heading='Enter the text to analyze' mode={mode}/>
         {/* <About /> */}
