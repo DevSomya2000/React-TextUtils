@@ -42,12 +42,6 @@ export default function TextForm(props) {
         props.showAlert('Removed all extra spaces from the text', 'success')
     }
 
-    const handleLoClick = () => {
-        // console.log('Lowercase was clicked' , text) 
-        let newText = text.toLowerCase()
-        setText(newText)
-    }
-
     const handleOnChange = (event) => {
         setText(event.target.value)
     }
@@ -57,7 +51,6 @@ export default function TextForm(props) {
             return 0
         }
         else {
-<<<<<<< HEAD
             return text.replace('\n',' ').trim().split(' ').length
             // let count = 0
             // let last_was_space = 1
@@ -80,11 +73,6 @@ export default function TextForm(props) {
             // if (!last_was_space) ++count; // Count the last word if there wasn't a space before
             // console.log(count)
             // return(count)
-=======
-            let newText = text.replace('\n',' ').trim().split(/[ ]+/).join(' ')
-            console.log(newText)
-            return newText.split(' ').length
->>>>>>> d7dcafe85ba82362747b6684ce769bd072f64b94
         }
     }
 
@@ -94,14 +82,6 @@ export default function TextForm(props) {
     <div className='container' style={{color: props.mode === 'light'? 'black': 'white'}}>
         <h1 className='my-3'>{props.heading}</h1>
         <div className="mb-3">
-<<<<<<< HEAD
-        <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
-        <button className="btn btn-primary my-3 mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
-        <button className="btn btn-primary my-3 mx-2" onClick={handleLoClick}>Convert to Lowercase</button>
-        </div>
-    </div>
-    <div className="container">
-=======
         <textarea className="form-control" style={{backgroundColor: props.mode === 'light'? 'white': 'grey',color: props.mode === 'light'? 'black': 'white'}} value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
         <button className="btn btn-primary my-3 mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
         <button className="btn btn-primary my-3 mx-2" onClick={handleLoClick}>Convert to Lowercase</button>
@@ -112,7 +92,6 @@ export default function TextForm(props) {
         </div>
     </div>
     <div className="container" style={{color: props.mode === 'light'? 'black': 'white'}}>
->>>>>>> d7dcafe85ba82362747b6684ce769bd072f64b94
         <h2>Your text summary</h2>
         <p>{textLength(text)} words and {text.trim().length} characters</p>
         <p>{textLength(text) * 0.008} Minutes read</p>
