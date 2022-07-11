@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Navbar(props) {
   return (
-<<<<<<< HEAD
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-=======
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
->>>>>>> d7dcafe85ba82362747b6684ce769bd072f64b94
       <div className="container-fluid">
         <a className="navbar-brand" href="/">{props.title}</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,15 +23,11 @@ function Navbar(props) {
           {/* <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
             <button className="btn btn-primary" type="submit">Search</button>
-<<<<<<< HEAD
-          </form>
-=======
           </form> */}
           <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
             <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
           </div>
->>>>>>> d7dcafe85ba82362747b6684ce769bd072f64b94
         </div>
       </div>
     </nav>
