@@ -5,35 +5,41 @@ export default function TextForm(props) {
         // Converts to Uppercase
         let newText = text.toUpperCase()
         setText(newText)
+        props.showAlert('Converted to UpperCase', 'success')
     }
 
     const handleLoClick = () => {
         // Converts to Lowercase
         let newText = text.toLowerCase()
         setText(newText)
+        props.showAlert('Converted to LowerCase', 'success')
     }
 
     const handleClearClick = () => {
         // Clears the text 
         let newText = ''
         setText(newText)
+        props.showAlert('Cleared the text', 'success')
     }
 
     const handleCamelClick = () => {
         // camelCaseTheText 
         let newText = text.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase())
         setText(newText)
+        props.showAlert('Converted to CamelCase', 'success')
     }
 
     const handleCopy = () => {
         var text = document.getElementById('myBox')
         text.select();
         navigator.clipboard.writeText(text.value)
+        props.showAlert('Copied the text', 'success')
     }
 
     const handleSpaces = () => {
         let newText = text.split(/[ ]+/)
         setText(newText.join(' '))
+        props.showAlert('Removed all extra spaces from the text', 'success')
     }
 
     const handleOnChange = (event) => {
@@ -45,7 +51,9 @@ export default function TextForm(props) {
             return 0
         }
         else {
-            return text.replace('\n',' ').trim().split(' ').length
+            let newText = text.replace('\n',' ').trim().split(/[ ]+/).join(' ')
+            console.log(newText)
+            return newText.split(' ').length
         }
     }
 
